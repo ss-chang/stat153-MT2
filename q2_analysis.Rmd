@@ -1,0 +1,23 @@
+---
+title: "Untitled"
+author: "Shannon Chang and Timothy Park"
+date: "4/9/2017"
+output: pdf_document
+---
+
+## Prepare the data
+```{r, eval = TRUE}
+# Load required package
+library(xts)
+
+# Load data set and convert to time series format
+q2_ts <- read.csv("q2_train.csv")
+q2_ts <- xts(q2_ts$activity, order.by = as.Date(q2_ts$Date))
+```
+
+## Perform exploratory data analysis
+```{r, eval = TRUE}
+# Plot original data to examine distribution
+plot(q2_ts, type = 'l', 
+     ylab = "Activity")
+```
